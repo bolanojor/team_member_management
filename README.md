@@ -16,7 +16,7 @@ Simple team member management application that allows to view, edit and delete t
 ## Edit page
 - Modifies team member info and role
 - Goes to list page upon team member storage when save is clicked
-- Goest to list page upon team member removal when delete is clicked
+- Goes to list page upon team member removal when delete is clicked
 
 ![Image of team member management](/images/team_member_management.PNG)
 
