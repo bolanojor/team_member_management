@@ -1,6 +1,7 @@
 from django import forms
 from team_member.models import TeamMember
 
+# Team member model form: notice admin_role label and widget are changed
 class TeamMemberForm(forms.ModelForm):
     class Meta():
         model = TeamMember

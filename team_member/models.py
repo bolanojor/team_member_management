@@ -1,10 +1,11 @@
 from django.db import models
 from phone_field import PhoneField
 
+# Options to associate with role boolean field
 role_choices = ((False, "Regular - Can't delete team members"),
                 (True, "Admin - Can delete team members"))
 
-# Create your models here.
+# Team member model: picture and phone are optional
 class TeamMember(models.Model):
     picture = models.ImageField(upload_to='profile_pictures', blank=True)
     first_name = models.CharField(max_length=32)

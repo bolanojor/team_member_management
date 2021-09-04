@@ -1,26 +1,19 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <img src="{% static "images/instawork.png" %}" alt="Instawork logo">
+{% extends 'team_member/base.html' %}
 
-    <h1> Add a team member </h1>
+{% block head_content %}
+<title> Add </title>
+{% endblock %}
 
-    Set e-mail, location and role
+{% block body_content %}
+<h1> Add a team member </h1>
 
-    <h2> Info </h2>
+Set e-mail, location and role
 
-    <form class="" enctype="multipart/form-data" method="post">
-      {% csrf_token %}
-      {{ form.as_p }}
-      <input type="submit" value="Save">
-    </form>
+<h2> Info </h2>
 
-    <h2> Role </h2>
-
-  </body>
-</html>
+<form class="" enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Save">
+</form>
+{% endblock %}
