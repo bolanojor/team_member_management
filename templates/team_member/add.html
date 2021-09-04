@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <img src="{% static "images/instawork.png" %}" alt="Instawork logo">
+
+    <h1> Add a team member </h1>
+
+    Set e-mail, location and role
+
+    <h2> Info </h2>
+
+    <form class="" enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Save">
+    </form>
+
+    <h2> Role </h2>
+
+  </body>
+</html>

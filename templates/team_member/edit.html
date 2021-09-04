@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <img src="{% static "images/instawork.png" %}" alt="Instawork logo">
+
+    <h1> Edit team member </h1>
+
+    Edit contact info, location and role
+
+    <h2> Info </h2>
+
+    <form class="" enctype="multipart/form-data" method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Save">
+    </form>
+    <a href="/team_member/delete/{{ team_member_id }}"> Delete </a>
+
+  </body>
+</html>

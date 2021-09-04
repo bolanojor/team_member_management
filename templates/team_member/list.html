@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>List</title>
+  </head>
+  <body>
+    <img src="{% static "images/instawork.png" %}" alt="Instawork logo">
+
+    <a href="/team_member/add">+</a>
+
+    <h1>Team members</h1>
+
+    You have {{ team_members.count }}  team members
+
+    {% for team_member in team_members %}
+    <div class="">
+      {% if team_member.picture %}
+      <img src="{{ team_member.picture.url }}">
+      {% endif %}
+      <p>
+        <strong>
+          {{ team_member.first_name }} {{ team_member.last_name }}
+          {% if team_member.admin_role %} (admin) {% endif %}
+        </strong>
+      </p>
+      {% if team_member.phone_number %}
+      <p> {{ team_member.phone_number }} </p>
+      {% endif %}
+      <p> {{ team_member.email }} </p>
+      <a href="/team_member/edit/{{ team_member.id }}">Edit</a>
+    </div>
+    {% endfor %}
+
+  </body>
+</html>
