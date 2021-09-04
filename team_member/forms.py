@@ -8,7 +8,7 @@ class TeamMemberForm(forms.ModelForm):
         fields = ('picture', 'first_name', 'last_name',  'email',
                   'phone_number', 'admin_role')
         labels = {
-            'admin_role': 'Role'
+            'admin_role': ''
         }
         widgets = {
             'admin_role': forms.RadioSelect

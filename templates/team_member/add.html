@@ -1,4 +1,5 @@
 {% extends 'team_member/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block head_content %}
 <title> Add </title>
@@ -7,13 +8,29 @@
 {% block body_content %}
 <h1> Add a team member </h1>
 
-Set e-mail, location and role
+<p class="text-center fs-5"> Set e-mail, location and role </p>
 
-<h2> Info </h2>
+<h3> Info </h3>
 
 <form class="" enctype="multipart/form-data" method="post">
   {% csrf_token %}
-  {{ form.as_p }}
-  <input type="submit" value="Save">
+  <p> {{ form.picture|as_crispy_field }} </p>
+  <p> {{ form.first_name|as_crispy_field }} </p>
+  <p> {{ form.last_name|as_crispy_field }} </p>
+  <p> {{ form.email|as_crispy_field }} </p>
+  <p> {{ form.phone_number|as_crispy_field }} </p>
+  <h3> Role </h3>
+  <p> {{ form.admin_role|as_crispy_field }} </p>
+  <div class="container">
+    <div class="row justify-content-end">
+      <div class="col">
+      </div>
+      <div class="col">
+      </div>
+      <div class="col">
+        <input type="submit" value="Save" class="btn btn-primary">
+      </div>
+    </div>
+  </div>
 </form>
 {% endblock %}

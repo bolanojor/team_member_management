@@ -1,32 +1,54 @@
 {% extends 'team_member/base.html' %}
+{% load static %}
 
 {% block head_content %}
 <title> List </title>
 {% endblock %}
 
 {% block body_content %}
-<a href="/team_member/add">+</a>
+<a href="{% url 'add' %}" class="btn btn-outline-secondary fs-3 btn-sm",
+   style="float:right"> + </a>
 
 <h1>Team members</h1>
 
-You have {{ team_members.count }}  team members
+<p class="text-center fs-5"> You have {{ team_members.count }}  team members </p>
 
 {% for team_member in team_members %}
-<div class="">
-  {% if team_member.picture %}
-  <img src="{{ team_member.picture.url }}">
-  {% endif %}
-  <p>
-    <strong>
-      {{ team_member.first_name }} {{ team_member.last_name }}
-      {% if team_member.admin_role %} (admin) {% endif %}
-    </strong>
-  </p>
-  {% if team_member.phone_number %}
-  <p> {{ team_member.phone_number }} </p>
-  {% endif %}
-  <p> {{ team_member.email }} </p>
-  <a href="/team_member/edit/{{ team_member.id }}">Edit</a>
-</div>
+<style>
+  #NO_STYLE {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+<a href="{% url 'edit' team_member_id=team_member.id %}" id=NO_STYLE>
+  <div class="container">
+    <div class="row align-items-center">
+      <hr/>
+      <div class="col text-center">
+        {% if team_member.picture %}
+          <img class="rounded-circle"
+               src="{{ team_member.picture.url }}"
+               height="100" width="100">
+        {% else %}
+        <img class="rounded-circle"
+             src="{% static 'images/generic_profile.jpg' %}"
+             height="100" width="100">
+        {% endif %}
+      </div>
+      <div class="col">
+        <p>
+          <strong>
+            {{ team_member.first_name }} {{ team_member.last_name }}
+            {% if team_member.admin_role %} (admin) {% endif %}
+          </strong>
+        </p>
+        {% if team_member.phone_number %}
+        <p> {{ team_member.phone_number }} </p>
+        {% endif %}
+        <p> {{ team_member.email }} </p>
+      </div>
+    </div>
+  </div>
+</a>
 {% endfor %}
 {% endblock %}

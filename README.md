@@ -22,5 +22,6 @@ Simple team member management application that allows to view, edit and delete t
 
 > **_NOTE:_**  Besides Python and Django installation,
               the following packages are needed:
+              *django-crispy-forms* for form rendering,
               *django-phone-field* for phone number
               field and *pillow* for image field.
