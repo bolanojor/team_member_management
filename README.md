@@ -22,5 +22,5 @@ Simple team member management application that allows to view, edit and delete t
 
 > **_NOTE:_**  Besides Python and Django installation,
               the following packages are needed:
-              - django-phone-field for phone number field.
-              - pillow for image field.
+              *django-phone-field* for phone number
+              field and *pillow* for image field.
