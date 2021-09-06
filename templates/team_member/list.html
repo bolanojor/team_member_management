@@ -11,7 +11,14 @@
 
 <h1>Team members</h1>
 
-<p class="text-center fs-5"> You have {{ team_members.count }}  team members </p>
+<p class="text-center fs-5">
+  You have {{ team_members.count }}  team
+  {% if team_members.count != 1 %}
+    members
+  {% else %}
+    member
+  {% endif %}
+</p>
 
 {% for team_member in team_members %}
 <style>
