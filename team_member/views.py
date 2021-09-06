@@ -1,6 +1,7 @@
 from team_member.models import TeamMember
 from team_member.forms import TeamMemberForm
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.validators import validate_email
 
 # List view: Shows all team members
 def list(request):
@@ -22,6 +23,9 @@ def add(request):
                 team_member.picture = request.FILES['picture']
                 team_member.save()
             return redirect('/team_member/')
+        else:
+            content = {'form': team_member_form}
+            return render(request, 'team_member/add.html', context=content)
     else:
         # On GET request display empty form
         team_member_form = TeamMemberForm()
@@ -43,6 +47,9 @@ def edit(request, team_member_id):
                 team_member.picture = request.FILES['picture']
                 team_member_form.save()
             return redirect('/team_member/')
+        else:
+            content = {'form': team_member_form}
+            return render(request, 'team_member/add.html', context=content)
     else:
         # On GET request display form with team member information
         team_member_form = TeamMemberForm(instance=team_member)
